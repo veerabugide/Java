@@ -1,0 +1,122 @@
+package com.company;
+
+import java.util.Scanner;
+class Calculator{
+    Scanner sc=new Scanner(System.in);
+    public void add()
+    {
+        System.out.println("Enter numbers");
+        int num1=sc.nextInt();
+        int num2=sc.nextInt();
+        System.out.println("The sum is :"+(num1+num2));
+    }
+    public void sub()
+    {
+        System.out.println("Enter numbers");
+        int num1=sc.nextInt();
+        int num2=sc.nextInt();
+        System.out.println("The sub is :"+(num1-num2));
+    }
+    public void mul()
+    {
+        System.out.println("Enter numbers");
+        int num1=sc.nextInt();
+        int num2=sc.nextInt();
+        System.out.println("The mul is :"+(num1*num2));
+    }
+    public void div()
+    {
+        System.out.println("Enter numbers");
+        float num1=sc.nextFloat();
+        float num2=sc.nextFloat();
+        System.out.println("The div is :"+(num1/num2));
+    }
+}
+class ExtendCal extends Calculator{
+    public void oddOrEven(){
+        System.out.println("Enter the number :");
+        int num=sc.nextInt();
+        if(num%2==0)
+        {
+            System.out.println(num+" Its a even number");
+        }
+        else{
+            System.out.println(num+" Its a odd number");
+        }
+    }
+    public void prime(){
+        System.out.println("Enter the number :");
+        int num=sc.nextInt();
+        int count=0;
+        for(int i=2;i<=num/2;i++)
+        {
+            if(num%i==0)
+            {
+                count++;
+            }
+        }
+            if(num==2 || num==1)
+            {
+                System.out.println(num+" Tne number is co prime ");
+            }
+            else if(count==0){
+                System.out.println(num+" Its a prime number");
+            }
+            else{
+                System.out.println(num+" Its not a prime number");
+            }
+
+
+    }
+    public void square(){
+        System.out.println("Enter the number :");
+        int num=sc.nextInt();
+        System.out.println("The square is :"+(num*num));
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        for (int iteration = 0; iteration < 100; iteration++) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("1: Add \n 2:substract \n 3:multiply \n 4:devision \n 5:odd or even \n 6:check prime \n 7:Square number \n 8:exit");
+            int option = sc.nextInt();
+            switch (option) {
+                case 1:
+                    ExtendCal addObj=new ExtendCal();
+                    addObj.add();
+                    break;
+                case 2:
+                    ExtendCal subObj=new ExtendCal();
+                    subObj.sub();
+                    break;
+                case 3:
+                    ExtendCal mulObj=new ExtendCal();
+                    mulObj.mul();
+                    break;
+                case 4:
+                    ExtendCal divObj=new ExtendCal();
+                    divObj.div();
+                    break;
+                case 5:
+                    ExtendCal oddevenObj=new ExtendCal();
+                    oddevenObj.oddOrEven();
+                    break;
+                case 6:
+                    ExtendCal primeObj=new ExtendCal();
+                    primeObj.prime();
+                    break;
+                case 7:
+                    ExtendCal squareObj=new ExtendCal();
+                    squareObj.square();
+                    break;
+                case 8:
+                    System.out.println("Bye have a great day");
+                    System.exit(0);
+                default:
+                    System.out.println("Enter valid option");
+            }
+        }
+    }
+}
