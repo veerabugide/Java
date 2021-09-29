@@ -1,0 +1,160 @@
+package com.company;
+
+import java.util.Scanner;
+
+
+class Add{
+    public int sum(int a,int b)
+    {
+        return a+b;
+    }
+    public int sum(int a,int b,int c)
+    {
+        return a+b+c;
+    }
+    public int sum(int a,int b,int c,int d)
+    {
+        return a+b+c+d;
+    }
+}
+class Sub{
+    public int minus(int a,int b)
+    {
+        return a-b;
+    }
+    public int minus(int a,int b,int c)
+    {
+        return a-b-c;
+    }
+    public int minus(int a,int b,int c,int d)
+    {
+        return a-b-c-d;
+    }
+}
+class Multiply{
+    public int mul(int a,int b)
+    {
+        return a*b;
+    }
+    public int mul(int a,int b,int c)
+    {
+        return a*b*c;
+    }
+    public int mul(int a,int b,int c,int d)
+    {
+        return a*b*c*d;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+
+        for(int iteration=0;iteration<100;iteration++)
+        {
+            Scanner sc=new Scanner(System.in);
+            System.out.println("1: Add \n 2:substract \n 3:multiply \n 4:devision 5:exit");
+            int option=sc.nextInt();
+            switch(option)
+            {
+                case 1:
+                    Add add=new Add();
+                    System.out.println("how many numbers you want to add:");
+                    int totalNumbers=sc.nextInt();
+                    if(totalNumbers==1)
+                    {
+                        System.out.println("Please enter more than 1 num to do operation ");
+                        break;
+                    }
+                    int sumArray[]=new int[totalNumbers];
+                    for(int i=0;i<totalNumbers;i++)
+                    {
+                        System.out.println("enter "+(i+1)+" number");
+                        sumArray[i]=sc.nextInt();
+                    }
+                    if(totalNumbers==2)
+                    {
+                        System.out.println("sum is "+add.sum(sumArray[0],sumArray[1]));
+                    }
+                    else if(totalNumbers==3)
+                    {
+                        System.out.println("sum is "+add.sum(sumArray[0],sumArray[1],sumArray[2]));
+                    }
+                    else if(totalNumbers==4)
+                    {
+                        System.out.println("sum is "+add.sum(sumArray[0],sumArray[1],sumArray[2],sumArray[3]));
+                    }
+                    break;
+
+                case 2:
+                    Sub min=new Sub();
+                    System.out.println("how many numbers you want to sub:");
+                    int totalNumbersForSub=sc.nextInt();
+                    if(totalNumbersForSub==1)
+                    {
+                        System.out.println("Please enter more than 1 num to do operation ");
+                        break;
+                    }
+                    int Subarray[]=new int[totalNumbersForSub];
+                    for(int i=0;i<totalNumbersForSub;i++)
+                    {
+                        System.out.println("enter "+(i+1)+" number");
+                        Subarray[i]=sc.nextInt();
+                    }
+                    if(totalNumbersForSub==2)
+                    {
+                        System.out.println("sub is "+min.minus(Subarray[0],Subarray[1]));
+                    }
+                    else if(totalNumbersForSub==3)
+                    {
+                        System.out.println("sub is "+min.minus(Subarray[0],Subarray[1],Subarray[2]));
+                    }
+                    else if(totalNumbersForSub==4)
+                    {
+                        System.out.println("sub is "+min.minus(Subarray[0],Subarray[1],Subarray[2],Subarray[3]));
+                    }
+                    break;
+
+                case 3:
+                    Multiply m=new Multiply();
+                    System.out.println("how many numbers you want to Multiply:");
+                    int totalNumbersForMul=sc.nextInt();
+                    if(totalNumbersForMul==1)
+                    {
+                        System.out.println("Please enter more than 1 num to do operation ");
+                        break;
+                    }
+                    int mulArray[]=new int[totalNumbersForMul];
+                    for(int i=0;i<totalNumbersForMul;i++)
+                    {
+                        System.out.println("enter "+(i+1)+" number");
+                        mulArray[i]=sc.nextInt();
+                    }
+                    if(totalNumbersForMul==2)
+                    {
+                        System.out.println("Multiply is "+m.mul(mulArray[0],mulArray[1]));
+                    }
+                    else if(totalNumbersForMul==3)
+                    {
+                        System.out.println("Multiply is "+m.mul(mulArray[0],mulArray[1],mulArray[2]));
+                    }
+                    else if(totalNumbersForMul==4)
+                    {
+                        System.out.println("Multiply is "+m.mul(mulArray[0],mulArray[1],mulArray[2],mulArray[3]));
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("Enter the 1 st number");
+                    float num1=sc.nextFloat();
+                    System.out.println("Enter the 2 st number");
+                    float num2=sc.nextFloat();
+                    System.out.println("Division is:"+(num1/num2));
+                    break;
+                case 5:
+                    System.out.println("Bye have a great day");
+                    System.exit(0);
+                default:
+                    System.out.println("Enter valid input");
+            }
+        }
+    }
+}
