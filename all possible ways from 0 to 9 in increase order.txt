@@ -1,0 +1,104 @@
+package com.company;
+
+public class Main {
+    static int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    static int count=0;
+    public static void main(String[] args) {
+
+        for (int i = 0; i < array.length; i++) {
+            first(i, array.length);
+        }
+        System.out.println("count is:"+count);
+    }
+
+    static void first(int first, int n) {
+        for (int j = first; j < n - 1; j++) {
+            System.out.print("(" + array[first] + "," + array[j + 1] + ")");
+            count++;
+        }
+        if(first==0 || first==1 ||first==2 || first==3 || first==4 || first==5 || first==6 || first==7) {
+            System.out.println(" ");
+        }
+        second(first, n);
+    }
+
+    static void second(int first, int n) {
+        for (int j = first; j < n - 2; j++) {
+            System.out.print("(" + array[first] + "," + array[first + 1] + "," + array[j + 2] + ")");
+            count++;
+        }
+        if(first==0 || first==1 ||first==2 || first==3 || first==4 || first==5 || first==6 ) {
+            System.out.println(" ");
+        }
+        third(first, n);
+    }
+
+    static void third(int first, int n) {
+        for (int j = first; j < n - 3; j++) {
+            System.out.print("(" + array[first] + "," + array[first + 1] + "," + array[first + 2] + "," + array[j + 3] + ")");
+            count++;
+        }
+        if(first==0 || first==1 ||first==2 || first==3 || first==4 || first==5 ) {
+            System.out.println(" ");
+        }
+        fourth(first, n);
+    }
+
+    static void fourth(int first, int n) {
+        for (int j = first; j < n - 4; j++) {
+            System.out.print("(" + array[first] + "," + array[first + 1] + "," + array[first + 2] + "," + array[first + 3] + "," + array[j + 4] + ")");
+            count++;
+        }
+        if(first==0 || first==1 ||first==2 || first==3 || first==4 ) {
+            System.out.println(" ");
+        }
+        fifth(first, n);
+    }
+
+    static void fifth(int first, int n) {
+        for (int j = first; j < n - 5; j++) {
+            System.out.print("(" + array[first] + "," + array[first + 1] + "," + array[first + 2] + "," + array[first + 3] + "," + array[first + 4] + "," + array[j + 5] + ")");
+            count++;
+        }
+        if(first==0 || first==1 ||first==2 || first==3 ) {
+            System.out.println(" ");
+        }
+        sixth(first, n);
+    }
+    static void sixth(int first, int n) {
+        for (int j =first; j < n - 6; j++) {
+            System.out.print("(" + array[first] + "," + array[first + 1] + "," + array[first + 2] + "," + array[first + 3] + "," + array[first + 4] + "," +array[first + 5] + "," + array[j + 6] + ")");
+            count++;
+        }
+        if(first==0 || first==1 ||first==2 ) {
+            System.out.println(" ");
+        }
+        seventh(first, n);
+    }
+    static void seventh(int first, int n) {
+        for (int j = first; j < n - 7; j++) {
+            System.out.print("(" + array[first] + "," + array[first + 1] + "," + array[first + 2] + "," + array[first + 3] + "," + array[first + 4] + "," + array[first + 5] + "," + "," + array[first + 6] + "," + array[j + 7] + ")");
+            count++;
+        }
+        if(first==0 || first==1) {
+            System.out.println(" ");
+        }
+        eigth(first, n);
+    }
+    static void eigth(int first, int n) {
+        for (int j =first; j < n - 8; j++) {
+            System.out.print("(" + array[first] + "," + array[first + 1] + "," + array[first + 2] + "," + array[first + 3] + "," + array[first + 4] + "," +array[first + 5] + "," +"," +array[first + 6] + "," + array[first + 7] + "," + array[j + 8] + ")");
+            count++;
+        }
+        if(first==0) {
+            System.out.println(" ");
+        }
+        nineth(first, n);
+    }
+    static void nineth(int first, int n) {
+        for (int j =first; j < n - 9; j++) {
+            System.out.print("(" + array[first] + "," + array[first + 1] + "," + array[first + 2] + "," + array[first + 3] + "," + array[first + 4] + "," +array[first + 5]  +"," +array[first + 6] + "," + array[first + 7] + "," + array[first + 8] + "," + array[j + 9] + ")");
+            count++;
+        }
+    }
+}
