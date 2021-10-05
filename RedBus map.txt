@@ -1,0 +1,100 @@
+package com.company;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+interface Red_Bus_Intercace {
+    public void option();
+    public void bookingOfTicket();
+    public void ticketDetails();
+    public void removeTicket();
+
+}
+public class Main implements Red_Bus_Intercace {
+
+    Scanner sc=new Scanner(System.in);
+    Map<String, Map> ticket=new HashMap<>();
+
+    public void option(){
+        while (true) {
+            System.out.println("1: Booking of Ticket  2:Show Ticket details  3:Remove Ticket  4:exit");
+            int op = sc.nextInt();
+
+                switch (op) {
+                    case 1:
+                        bookingOfTicket();
+                        break;
+
+                    case 2:
+                        ticketDetails();
+                        break;
+
+                    case 3:
+                        removeTicket();
+                        break;
+
+                    case 4:
+                        System.exit(0);
+                    default:
+                        System.out.println("Enter valid option ");
+                        break;
+
+            }
+            }
+
+    }
+
+    public void bookingOfTicket(){
+
+        System.out.println("Enter ticket number : ");
+        String ticketNo=sc.next();
+
+        Map<String,String> ticketInfo=new HashMap<>();
+
+        System.out.println("Enter Name : ");
+        String name=sc.next();
+        ticketInfo.put("name",name);
+
+        System.out.println("Enter from place : ");
+        String fromPlace=sc.next();
+        ticketInfo.put("fromPlace",fromPlace);
+
+        System.out.println("Enter to place : ");
+        String toPlace=sc.next();
+        ticketInfo.put("toPlace",toPlace);
+
+        ticket.put(ticketNo,ticketInfo);
+        System.out.println("Ticket generated successfully");
+
+    }
+    public void ticketDetails(){
+        System.out.println("Enter Ticket Number :");
+        String ticketNo=sc.next();
+
+        if(ticket.containsKey(ticketNo)){
+            Map ticketInfo=ticket.get(ticketNo);
+            System.out.println("Name :"+ticketInfo.get("name"));
+            System.out.println("from place :"+ticketInfo.get("fromPlace"));
+            System.out.println("to place :"+ticketInfo.get("toPlace"));
+        }
+        else{
+            System.out.println("Enter valid ticket number ");
+        }
+    }
+    public void removeTicket(){
+        System.out.println("Enter Ticket Number :");
+        String ticketNo=sc.next();
+        if(ticket.containsKey(ticketNo)){
+            ticket.remove(ticketNo);
+            System.out.println("Ticked removed successfully ");
+        }
+        else{
+            System.out.println("Enter valid ticket number : ");
+        }
+    }
+    public static void main(String[] args) {
+	// write your code here
+        Main m=new Main();
+        m.option();
+    }
+}
