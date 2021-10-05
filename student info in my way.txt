@@ -1,0 +1,61 @@
+package com.company;
+
+import com.company.entity.Student;
+
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Map<String, Map> Student = new HashMap<>();
+        ArrayList<String> list = new ArrayList<>();
+        System.out.println("Enter the number how many students you want to enter :");
+        int n = sc.nextInt();
+        for (int j = 0; j < n; j++) {
+            System.out.println("Enter "+(j+1)+" student details ");
+            System.out.println("Enter usn : ");
+            String id = sc.next();
+            list.add(id);
+
+                Map<String, ArrayList> Student_info = new HashMap<>();
+
+                for (int i = 0; i < 1; i++) {
+                    ArrayList<String> list1 = new ArrayList<>();
+
+                    System.out.println("Enter name: ");
+                    String name = sc.next();
+                    list1.add(name);
+
+                    System.out.println("Enter college: ");
+                    String college = sc.next();
+                    list1.add(college);
+
+                    System.out.println("Enter Branch: ");
+                    String branch = sc.next();
+                    list1.add(branch);
+
+                    System.out.println("Enter age : ");
+                    String age = sc.next();
+                    list1.add(age);
+
+                    System.out.println("Enter place: ");
+                    String place = sc.next();
+                    list1.add(place);
+                    Student_info.put(list.get(j),list1);
+                }
+                Student.put(list.get(j),Student_info);
+        }
+            Iterator it = list.iterator();
+            while (it.hasNext()) {
+                String usn = (String) it.next();
+                System.out.println(Student.get(usn));
+            }
+        }
+    }
+
+
+
+
