@@ -1,0 +1,105 @@
+import java.sql.*;
+import java.util.Scanner;
+public class Taskjdbc {
+    static Scanner sc=new Scanner(System.in);
+    private static Connection con;
+     private static  Statement stm;
+
+    public static void main(String []args){
+
+        try{
+
+            String address="jdbc:mysql://localhost:3306/jdbc_demo";
+            String user="root";
+            String pass="root";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con= DriverManager.getConnection(address,user,pass);
+            stm=con.createStatement();
+            while (true){
+                System.out.println("Choose Option: \n 1-Insert \n 2-Delete \n 3-Display all details \n 4-Display Specific Details \n 5-Exit");
+                int op=sc.nextInt();
+                switch (op){
+                    case 1: insertData();
+                        break;
+
+                    case 2:deleteData();
+                        break;
+
+                    case 3:displayAll();
+                        break;
+
+                    case 4: displaySpecific();
+                        break;
+
+                    case 5:
+                        System.out.println("Thanks for using ");
+                        System.exit(0);
+                    default:
+                        System.out.println("Enter valid input");
+                        break;
+                }
+            }
+         }
+        catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void insertData() throws SQLException {
+        System.out.println("Enter Usn :");
+        int usn=sc.nextInt();
+        System.out.println("Enter Name :");
+        String name=sc.next();
+        System.out.println("Enter Age :");
+        int age=sc.nextInt();
+        System.out.println("Enter Branch :");
+        String branch=sc.next();
+        System.out.println("Enter place :");
+        String place=sc.next();
+        String sqlInsert="insert into student values(?,?,?,?,?)";
+        PreparedStatement pstm=con.prepareStatement(sqlInsert);
+        pstm.setInt(1,usn);
+        pstm.setString(2,name);
+        pstm.setInt(3,age);
+        pstm.setString(4,branch);
+        pstm.setString(5,place);
+        int status=pstm.executeUpdate();
+        if(status==0){
+            System.out.println("Enter the name which is present name in table ");
+        }else {
+            System.out.println("Insertion done ");
+        }
+
+    }
+    public static void displayAll() throws SQLException {
+        String sqlQuery="select * from student";
+        ResultSet res=stm.executeQuery(sqlQuery);
+        while(res.next()){
+            System.out.println("Usn :"+res.getString(1 )+"\tName :"+res.getString(2)+"\tAge :"+res.getString(3 )+"\tBranch :"+res.getString(4 )+"\tPlace :"+res.getString(5 ));
+        }
+    }
+    public static void displaySpecific() throws SQLException {
+        System.out.println("Enter the usn to show the data");
+        int usnSelectForShow=sc.nextInt();
+        String queryForShow="select * from student where usn="+usnSelectForShow+"";
+        ResultSet resForShow=stm.executeQuery(queryForShow);
+        while(resForShow.next()){
+            System.out.println("Usn :"+resForShow.getString(1 )+"\tName :"+resForShow.getString(2)+"\tAge :"+resForShow.getString(3 )+"\tBranch :"+resForShow.getString(4 )+"\tPlace :"+resForShow.getString(5 ));
+        }
+
+    }
+
+    public static void deleteData() throws SQLException {
+        System.out.println("Enter the usn to delete the data");
+        int usnSelect=sc.nextInt();
+        String sqlDelete="delete from student where usn=?";
+        PreparedStatement pstmDelete=con.prepareStatement(sqlDelete);
+        pstmDelete.setInt(1,usnSelect);
+        int deleteStatus=pstmDelete.executeUpdate();
+        if(deleteStatus==0){
+            System.out.println("Enter the name which is present in database ");
+        }else {
+            System.out.println("Deletion done ");
+        }
+    }
+}
