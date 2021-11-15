@@ -5,7 +5,7 @@ import com.JPA.Demobook.Car;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyServices implements MyServicesInterface{
+public class MyServices  implements MyServicesInterface{
 
     List<Car> list=new ArrayList<Car>();
 
@@ -35,6 +35,5 @@ public class MyServices implements MyServicesInterface{
             }
         }
         return null;
-
     }
 }

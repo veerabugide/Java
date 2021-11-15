@@ -1,17 +1,17 @@
 package com.JPA.Demobook;
 
-public class Car {
+public class Car{
     int id;
     String name;
     String dis;
-    public int getId() {
-        return id;
-    }
 
     public Car(int id, String name, String dis) {
         this.id = id;
         this.name = name;
         this.dis = dis;
+    }
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {
@@ -33,7 +33,4 @@ public class Car {
     public void setDis(String dis) {
         this.dis = dis;
     }
-
-
-
 }
