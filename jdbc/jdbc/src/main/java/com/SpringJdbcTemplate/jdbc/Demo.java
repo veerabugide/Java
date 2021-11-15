@@ -15,7 +15,7 @@ public class Demo {
 
     public List<String> getAllStudentNames(){
         List<String> names=new ArrayList<>();
-        names.addAll(jdbcTemplate.queryForList("select id from student",String.class));
+        names.addAll(jdbcTemplate.queryForList("select id,name from student",String.class,String.class));
         return names;
     }
 }
